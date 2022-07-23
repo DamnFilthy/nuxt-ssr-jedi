@@ -10,20 +10,7 @@
           <nuxt-link  no-prefetch active-class="active" to="/planets" class="nav-link">Planets</nuxt-link>
           <nuxt-link  no-prefetch active-class="active" to="/starships" class="nav-link">Star Ships</nuxt-link>
           <nuxt-link  no-prefetch active-class="active" to="/species" class="nav-link">Species</nuxt-link>
-          <nuxt-link  no-prefetch active-class="active" to="/about" class="nav-link">About Me</nuxt-link>
-          <nuxt-link  no-prefetch active-class="active" to="/work" class="nav-link">Work</nuxt-link>
-        </b-navbar-nav>
-
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template #button-content>
-              <em>User</em>
-            </template>
-            <nuxt-link  no-prefetch active-class="active" to="/login" class="dropdown-item">Войти</nuxt-link>
-            <nuxt-link  no-prefetch active-class="active" to="/logout" class="dropdown-item">Выйти</nuxt-link>
-          </b-nav-item-dropdown>
+          <nuxt-link  no-prefetch active-class="active" to="/about" class="nav-link">About</nuxt-link>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

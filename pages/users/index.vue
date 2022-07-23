@@ -9,24 +9,23 @@
           </nuxt-link>
         </ul>
         <div v-if="fetching">
-         <h1>Loading ...</h1>
+           <Spinner/>
         </div>
-        <button @click.prevent="fetchMorePeople">Показать еще</button>
+        <show-more-btn @showMore="fetchMorePeople" v-if="!fetching"/>
       </div>
     </section>
     <section v-else-if="loading" class="loading-page">
-      <h1>Loading ...</h1>
+      <Spinner/>
     </section>
   </div>
 
 </template>
 <script>
+  import ShowMoreBtn from "@/components/ShowMoreBtn";
+  import Spinner from "@/components/Spinner";
+
   export default {
-    // Обработка даты на сервере
-    // async asyncData({$axios}){
-    //   const users = await $axios.$get('https://swapi.dev/api/people')
-    //   return {users}
-    // },
+    components: {ShowMoreBtn, Spinner},
     data(){
       return{
         page: 1,

@@ -6,11 +6,17 @@
         {{planet.name}}
       </nuxt-link>
     </ul>
-    <button @click.prevent="fetchMorePlanets">Показать еще</button>
+    <div v-if="fetching">
+      <Spinner/>
+    </div>
+    <show-more-btn @showMore="fetchMorePlanets" v-if="!fetching"/>
   </section>
 </template>
 <script>
+  import ShowMoreBtn from "@/components/ShowMoreBtn";
+  import Spinner from "@/components/Spinner";
   export default {
+    components: {ShowMoreBtn, Spinner},
     // Обработка даты на сервере
     async asyncData({$axios}){
       const planets = await $axios.$get('https://swapi.dev/api/planets')
@@ -18,15 +24,18 @@
     },
     data(){
       return{
+        fetching: false,
         page: 1,
         planets: []
       }
     },
     methods: {
       async fetchMorePlanets(){
+        this.fetching = true
         this.page++
         const newPlanets = await this.$axios.$get('https://swapi.dev/api/planets?page=' + this.page)
         this.planets.results.push(...newPlanets.results)
+        this.fetching = false
       }
     }
   }

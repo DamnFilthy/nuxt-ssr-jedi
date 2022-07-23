@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Alexander Shiryaev',
+    title: 'SSR Star-Wars',
     htmlAttrs: {
       lang: 'ru'
     },
@@ -45,7 +45,6 @@ export default {
     '@nuxtjs/axios',
     'bootstrap-vue/nuxt',
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
 

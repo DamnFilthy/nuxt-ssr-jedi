@@ -1,10 +1,9 @@
 <template>
   <div>
     <section v-if="user !== null && homeworld !== null && !loading">
-      <h1>User {{$route.params.id}}</h1>
+      <h1>{{this.user.name}}</h1>
       <div class="user-block">
         <div>
-          <p class="title">Name: {{this.user.name}}</p>
           <p>Height: {{this.user.height}}</p>
           <p>Mass: {{this.user.mass}}</p>
           <p>Hair Color: {{this.user.hair_color}}</p>
@@ -35,15 +34,16 @@
       </div>
     </section>
     <section v-else-if="loading" class="loading-page">
-      <h1>Loading ...</h1>
+      <Spinner/>
     </section>
   </div>
 
 </template>
 
 <script>
-
+  import Spinner from "@/components/Spinner"
   export default {
+    components: {Spinner},
     data(){
       return{
         user: null,
